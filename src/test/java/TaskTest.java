@@ -123,5 +123,12 @@ public class TaskTest {
     secondTask.save();
     assertEquals(Task.find(secondTask.getId()), secondTask);
   }
+  @Test
+  public void update_updatesTaskDescription_true() {
+    Task testTask = new Task("Mow the Lawn", 1);
+    testTask.save();
+    testTask.update("Take a nap");
+    assertEquals("Take a nap", Task.find(testTask.getId()).getDescription());
+  }
 
 }
